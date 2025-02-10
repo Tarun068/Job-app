@@ -1,0 +1,65 @@
+.job-container {
+  background-color: aliceblue;
+}
+.job-container h2 {
+  padding: 20px;
+  text-align: center;
+  color: blue;
+}
+.job-card {
+  background-color: white;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 15px;
+}
+.job-card h3 {
+  margin: 5px 0px 15px 0px;
+}
+.job-card-container {
+  padding: 25px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+}
+.job-type {
+  margin: 0;
+}
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.btn-read {
+  padding: 5px;
+  font-size: 14px;
+  width: 40%;
+  cursor: pointer;
+  background: blue;
+  color: white;
+}
+.btn-read a {
+  padding: 5px;
+  font-size: 14px;
+  width: 30%;
+  cursor: pointer;
+  background: blue;
+  color: white;
+  text-decoration: none;
+}
+.more-btn {
+  color: blue;
+}
+.salary {
+  color: blue;
+}
+
+@media (max-width: 768px) {
+  .job-card-container {
+    grid-template-columns: auto auto;
+  }
+}
+@media (max-width: 480px) {
+  .job-card-container {
+    grid-template-columns: auto;
+  }
+}

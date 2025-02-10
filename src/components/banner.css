@@ -1,0 +1,41 @@
+.banner-wrapper {
+  border-top: 1px solid white;
+  margin: 0;
+  height: 250px;
+  background: blue;
+  position: relative;
+}
+.banner-container h1 {
+  margin: 0;
+  font-size: xxx-large;
+}
+.banner-container p {
+  font-size: larger;
+}
+.banner-container {
+  width: 100%;
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media (max-width: 768px) {
+  .banner-container h1 {
+    margin: 0;
+    font-size: xx-large;
+  }
+  .banner-container p {
+    font-size: smaller;
+  }
+}
+@media (max-width: 480px) {
+  .banner-container h1 {
+    margin: 0;
+    font-size: xx-large;
+  }
+  .banner-container p {
+    font-size: smaller;
+  }
+}

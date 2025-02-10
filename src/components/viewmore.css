@@ -1,0 +1,26 @@
+.view-more a {
+  padding: 10px;
+  width: 15%;
+  background: blue;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.view-more {
+  padding: 10px;
+  width: 15%;
+  background: blue;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.view-btn {
+  padding: 15px;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .view-more {
+    width: 35%;
+  }
+}

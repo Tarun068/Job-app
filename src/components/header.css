@@ -1,0 +1,46 @@
+.header-wrapper {
+  background: blue;
+}
+.title {
+  color: white;
+  font-size: 20px;
+}
+.hamburger {
+  display: none;
+}
+.header-container {
+  padding: 0px 15px 15px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo-wrapper {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.nav-bar-links {
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  list-style: none;
+}
+.nav-links {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  border: 2px solid bisque;
+  padding: 5px;
+}
+@media (max-width: 480px) {
+  .nav-bar-container {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .hamburger img {
+    width: 30px;
+    background: white;
+  }
+}
