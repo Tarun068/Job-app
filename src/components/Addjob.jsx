@@ -46,7 +46,6 @@ const Addjob = () => {
               "https://job-app-beryl.vercel.app/add-job",
               values
             );
-            console.log("Response:", response.data);
             navigate("/jobs");
             resetForm();
           } catch (error) {
