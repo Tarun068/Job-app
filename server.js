@@ -1,44 +1,70 @@
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
 import fs from "fs";
-import path from "path";
+import { v4 as uuidv4 } from "uuid";
+import dotenv from "dotenv";
 
-export default function handler(req, res) {
-  const filePath = path.join(process.cwd(), "jobs.json");
+dotenv.config(); // Load environment variables
 
-  if (req.method === "POST") {
-    try {
-      let jobs = [];
+const app = express();
+const PORT = process.env.PORT || 5000; // Use dynamic port for deployment
 
-      if (fs.existsSync(filePath)) {
-        const fileData = fs.readFileSync(filePath, "utf8");
-        jobs = JSON.parse(fileData);
-      }
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
 
-      // Create new job object
-      const newJob = {
-        id: jobs.length ? String(Number(jobs[jobs.length - 1].id) + 1) : "1",
-        title: req.body.title,
-        type: req.body.type,
-        description: req.body.description,
-        location: req.body.location,
-        salary: req.body.salary,
-        company: {
-          name: req.body.companyName,
-          description: req.body.companyDescription,
-          contactEmail: req.body.email,
-          contactPhone: req.body.number,
-        },
-      };
+const filePath = "./jobs.json";
 
-      jobs.push(newJob);
+// POST route to save job data
+app.post("/add-job", async (req, res) => {
+  const {
+    title,
+    type,
+    description,
+    location,
+    salary,
+    companyName,
+    companyDescription,
+    email,
+    number,
+  } = req.body;
 
-      fs.writeFileSync(filePath, JSON.stringify(jobs, null, 2), "utf8");
+  const newJob = {
+    id: uuidv4(),
+    title,
+    type,
+    description,
+    location,
+    salary,
+    company: {
+      name: companyName,
+      description: companyDescription,
+      contactEmail: email,
+      contactPhone: number,
+    },
+  };
 
-      res.status(201).json({ message: "Job added successfully", job: newJob });
-    } catch (error) {
-      console.error("Error saving job:", error);
-      res.status(500).json({ error: "Internal Server Error" });
+  try {
+    let jobs = [];
+    if (fs.existsSync(filePath)) {
+      const data = await fs.promises.readFile(filePath, "utf8");
+      jobs = data ? JSON.parse(data) : [];
     }
-  } else {
-    res.status(405).json({ error: "Method Not Allowed" });
+
+    jobs.push(newJob);
+
+    await fs.promises.writeFile(filePath, JSON.stringify(jobs, null, 2));
+
+    console.log("Job saved successfully! ✅");
+    res.status(201).json({ message: "Job added successfully", job: newJob });
+  } catch (error) {
+    console.error("Error handling job data:", error);
+    res.status(500).json({ message: "Server error" });
   }
-}
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
