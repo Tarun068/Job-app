@@ -73,7 +73,11 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link className="nav-links" to="" onClick={closeMenu}>
+                <Link
+                  className="nav-links"
+                  to="/job/addJob"
+                  onClick={closeMenu}
+                >
                   Add-job
                 </Link>
               </li>
