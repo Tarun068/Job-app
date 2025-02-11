@@ -43,7 +43,7 @@ const Addjob = () => {
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           try {
             const response = await axios.post(
-              "https://job-app-beryl.vercel.app/add-job",
+              "https://job-app-beryl.vercel.app/api/add-job",
               values
             );
             console.log("Response:", response.data);
