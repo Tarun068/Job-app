@@ -48,6 +48,7 @@
 }
 .more-btn {
   color: blue;
+  cursor: pointer;
 }
 .salary {
   color: blue;

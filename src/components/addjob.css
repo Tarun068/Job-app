@@ -1,0 +1,51 @@
+.add-job-from {
+  height: 560px;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  align-items: flex-start;
+}
+form {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  width: 600px;
+  gap: 16px;
+  margin-top: 50px;
+  border: 1px solid;
+  border-radius: 15px;
+}
+.error {
+  color: red;
+}
+input {
+  padding: 5px;
+}
+.submit-btn {
+  padding: 10px;
+  font-size: large;
+  cursor: pointer;
+  background: blue;
+  color: white;
+  font-weight: bold;
+}
+.formData {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (max-width: 480px) {
+  form {
+    display: grid;
+    grid-template-columns: auto;
+    margin-top: 0;
+  }
+  .add-job-from {
+    height: auto;
+  }
+  .formData {
+    width: 350px;
+  }
+}

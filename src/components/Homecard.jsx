@@ -17,7 +17,7 @@ const HomeCard = () => {
         <h2>For Employers</h2>
         <p>List your job to find the perfect developer for the role</p>
         <button className="card2-btn">
-          <Link className="card-btn" to="">
+          <Link className="card-btn" to="/job/addJob">
             Add job
           </Link>
         </button>

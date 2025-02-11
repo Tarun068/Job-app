@@ -11,11 +11,21 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "formik": "^2.4.6",
+    "fs": "^0.0.1-security",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-icons": "^5.4.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.5",
-    "redux": "^5.0.1"
+    "redux": "^5.0.1",
+    "uuid": "^11.0.5",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
@@ -28,5 +38,18 @@
     "eslint-plugin-react-refresh": "^0.4.18",
     "globals": "^15.14.0",
     "vite": "^6.1.0"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tarun068/Job-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tarun068/Job-app/issues"
+  },
+  "homepage": "https://github.com/Tarun068/Job-app#readme"
 }

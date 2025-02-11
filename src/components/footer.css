@@ -1,0 +1,47 @@
+.footer-container {
+  background: black;
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
+}
+.tagName {
+  margin: 0;
+  color: white;
+  width: 33%;
+  text-align: center;
+}
+.rectMail {
+  margin: 0;
+  color: white;
+  width: 33%;
+}
+.icons {
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  width: 33%;
+}
+@media (max-width: 768px) {
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .tagName {
+    width: 100%;
+  }
+  .rectMail {
+    width: 100%;
+    text-align: center;
+  }
+  .icons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+}

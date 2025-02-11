@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./jobpage.css";
-import allData from "../jobs.json";
-import { Link } from "react-router-dom";
+import allData from "../../jobs.json";
+import { useNavigate } from "react-router-dom";
 const JobPage = ({ isHome = false }) => {
+  const [jobDesc, setJobDesc] = useState(false);
+  const navigate = useNavigate();
+  function handleMore(id) {
+    setJobDesc((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  }
+  function handleRead(id) {
+    navigate(`/job/${id}`);
+  }
   return (
     <div className="job-container">
       <h2>{isHome == true ? "Recent Jobs" : "Browse Jobs"}</h2>
@@ -11,13 +22,19 @@ const JobPage = ({ isHome = false }) => {
           <div key={data.id} className="job-card">
             <p className="job-type">{data.type}</p>
             <h3 className="heading">{data.title}</h3>
-            <p className="desc">{data.description.slice(0, 100)}</p>
-            <span className="more-btn">More</span>
+            <p className="desc">
+              {jobDesc[data.id]
+                ? data.description
+                : data.description?.slice(0, 100)}
+            </p>
+            <span className="more-btn" onClick={() => handleMore(data.id)}>
+              {jobDesc[data.id] ? "Less" : "More"}
+            </span>
             <p className="salary">{data.salary} / Year</p>
             <div className="card-bottom">
               <span>{data.location}</span>
-              <button className="btn-read">
-                <Link to="/job/desc">Read More</Link>
+              <button className="btn-read" onClick={() => handleRead(data.id)}>
+                Read More
               </button>
             </div>
           </div>
